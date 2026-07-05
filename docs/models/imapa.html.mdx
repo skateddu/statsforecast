@@ -108,7 +108,7 @@ been shown to be effective in forecasting future values.
 > **Tip**
 >
 > Statsforecast will be needed. To install, see
-> [instructions](../getting-started/0_Installation).
+> [instructions](../getting-started/installation.html).
 
 Next, we import plotting libraries and configure the plotting style.
 
@@ -215,7 +215,7 @@ from statsforecast import StatsForecast
 StatsForecast.plot(df)
 ```
 
-![](IMAPA_files/figure-markdown_strict/cell-8-output-1.png)
+![](./IMAPA_files/figure-markdown_strict/cell-8-output-1.png)
 
 ### Autocorrelation plots
 
@@ -266,7 +266,7 @@ axs[1].set_title('Partial Autocorrelation')
 plt.show();
 ```
 
-![](IMAPA_files/figure-markdown_strict/cell-9-output-1.png)
+![](./IMAPA_files/figure-markdown_strict/cell-9-output-1.png)
 
 ### Decomposition of the time series
 
@@ -358,7 +358,7 @@ plotSeasonalDecompose(
     title="Seasonal Decomposition")
 ```
 
-![](IMAPA_files/figure-markdown_strict/cell-11-output-2.png)
+![](./IMAPA_files/figure-markdown_strict/cell-11-output-2.png)
 
 ## Split the data into training and testing<a class="anchor" id="splitting"></a>
 
@@ -394,7 +394,7 @@ plt.xlabel("Hours")
 plt.show()
 ```
 
-![](IMAPA_files/figure-markdown_strict/cell-14-output-1.png)
+![](./IMAPA_files/figure-markdown_strict/cell-14-output-1.png)
 
 ## Implementation of IMAPA Method with StatsForecast <a class="anchor" id="implementation"></a>
 
@@ -502,7 +502,7 @@ Y_hat
 sf.plot(train, Y_hat)
 ```
 
-![](IMAPA_files/figure-markdown_strict/cell-21-output-1.png)
+![](./IMAPA_files/figure-markdown_strict/cell-21-output-1.png)
 
 ### Predict method with confidence interval
 
@@ -652,7 +652,7 @@ evaluate(
 3.  [James D. Hamilton. Time Series Analysis Princeton University Press,
     Princeton, New Jersey, 1st Edition,
     1994.](https://press.princeton.edu/books/hardcover/9780691042893/time-series-analysis)
-4.  [Nixtla IMAPA API](../../models#class-imapa)
+4.  [Nixtla IMAPA API](../../src/core/models.html#imapa)
 5.  [Pandas available
     frequencies](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases).
 6.  [Rob J. Hyndman and George Athanasopoulos (2018). “Forecasting

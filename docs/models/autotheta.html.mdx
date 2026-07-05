@@ -83,7 +83,7 @@ the model dynamically with new data.
 > **Tip**
 >
 > Statsforecast will be needed. To install, see
-> [instructions](../getting-started/0_Installation).
+> [instructions](../getting-started/installation.html).
 
 Next, we import plotting libraries and configure the plotting style.
 
@@ -197,7 +197,7 @@ from statsforecast import StatsForecast
 StatsForecast.plot(df)
 ```
 
-![](AutoTheta_files/figure-markdown_strict/cell-9-output-1.png)
+![](./AutoTheta_files/figure-markdown_strict/cell-9-output-1.png)
 
 ### Autocorrelation plots
 
@@ -213,7 +213,7 @@ axs[1].set_title('Partial Autocorrelation')
 plt.show();
 ```
 
-![](AutoTheta_files/figure-markdown_strict/cell-10-output-1.png)
+![](./AutoTheta_files/figure-markdown_strict/cell-10-output-1.png)
 
 ## Split the data into training and testing<a class="anchor" id="splitting"></a>
 
@@ -247,7 +247,7 @@ plt.xlabel("Month")
 plt.show()
 ```
 
-![](AutoTheta_files/figure-markdown_strict/cell-13-output-1.png)
+![](./AutoTheta_files/figure-markdown_strict/cell-13-output-1.png)
 
 ## Implementation of AutoTheta with StatsForecast <a class="anchor" id="implementation"></a>
 
@@ -661,7 +661,7 @@ axs[1,1].set_title("Autocorrelation");
 plt.show();
 ```
 
-![](AutoTheta_files/figure-markdown_strict/cell-20-output-1.png)
+![](./AutoTheta_files/figure-markdown_strict/cell-20-output-1.png)
 
 ### Forecast Method
 
@@ -723,7 +723,7 @@ values.head()
 StatsForecast.plot(values)
 ```
 
-![](AutoTheta_files/figure-markdown_strict/cell-23-output-1.png)
+![](./AutoTheta_files/figure-markdown_strict/cell-23-output-1.png)
 
 Adding 95% confidence interval with the forecast method
 
@@ -761,7 +761,7 @@ Y_hat1
 sf.plot(train, Y_hat1)
 ```
 
-![](AutoTheta_files/figure-markdown_strict/cell-26-output-1.png)
+![](./AutoTheta_files/figure-markdown_strict/cell-26-output-1.png)
 
 ### Predict method with confidence interval
 
@@ -818,7 +818,7 @@ forecast_df
 sf.plot(train, test.merge(forecast_df), level=[95])
 ```
 
-![](AutoTheta_files/figure-markdown_strict/cell-29-output-1.png)
+![](./AutoTheta_files/figure-markdown_strict/cell-29-output-1.png)
 
 ## Cross-validation <a class="anchor" id="cross_validate"></a>
 
@@ -935,7 +935,7 @@ evaluate(
     theta method and their relationship to state space models”.
     International Journal of
     Forecasting](https://www.sciencedirect.com/science/article/pii/S0169207016300243).
-2.  [Nixtla AutoTheta API](../../models#class-autotheta)
+2.  [Nixtla AutoTheta API](../../src/core/models.html#autotheta)
 3.  [Pandas available
     frequencies](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases).
 4.  [Rob J. Hyndman and George Athanasopoulos (2018). “Forecasting

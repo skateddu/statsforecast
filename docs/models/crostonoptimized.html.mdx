@@ -172,7 +172,7 @@ Here are some of the properties of the optimized Croston model:
 > **Tip**
 >
 > Statsforecast will be needed. To install, see
-> [instructions](../getting-started/0_Installation../getting-started/0_Installation).
+> [instructions](../getting-started/installation.html).
 
 Next, we import plotting libraries and configure the plotting style.
 
@@ -279,7 +279,7 @@ from statsforecast import StatsForecast
 StatsForecast.plot(df)
 ```
 
-![](CrostonOptimized_files/figure-markdown_strict/cell-8-output-1.png)
+![](./CrostonOptimized_files/figure-markdown_strict/cell-8-output-1.png)
 
 ### Autocorrelation plots
 
@@ -329,7 +329,7 @@ axs[1].set_title('Partial Autocorrelation')
 plt.show();
 ```
 
-![](CrostonOptimized_files/figure-markdown_strict/cell-9-output-1.png)
+![](./CrostonOptimized_files/figure-markdown_strict/cell-9-output-1.png)
 
 ### Decomposition of the time series
 
@@ -424,7 +424,7 @@ plotSeasonalDecompose(
     title="Seasonal Decomposition")
 ```
 
-![](CrostonOptimized_files/figure-markdown_strict/cell-12-output-2.png)
+![](./CrostonOptimized_files/figure-markdown_strict/cell-12-output-2.png)
 
 ## Split the data into training and testing<a class="anchor" id="splitting"></a>
 
@@ -558,7 +558,7 @@ Y_hat
 sf.plot(train, Y_hat, max_insample_length=500)
 ```
 
-![](CrostonOptimized_files/figure-markdown_strict/cell-21-output-1.png)
+![](./CrostonOptimized_files/figure-markdown_strict/cell-21-output-1.png)
 
 ### Predict method with confidence interval
 
@@ -707,7 +707,8 @@ evaluate(
 3.  [James D. Hamilton. Time Series Analysis Princeton University Press,
     Princeton, New Jersey, 1st Edition,
     1994.](https://press.princeton.edu/books/hardcover/9780691042893/time-series-analysis)
-4.  [Nixtla CrostonOptimized API](../../models#class-crostonoptimized)
+4.  [Nixtla CrostonOptimized
+    API](../../src/core/models.html#crostonoptimized)
 5.  [Pandas available
     frequencies](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#offset-aliases).
 6.  [Rob J. Hyndman and George Athanasopoulos (2018). “Forecasting

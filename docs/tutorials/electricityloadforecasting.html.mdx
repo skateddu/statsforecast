@@ -93,7 +93,7 @@ df.tail()
 plot_series(df)
 ```
 
-![](ElectricityLoadForecasting_files/figure-markdown_strict/cell-8-output-1.png)
+![](./ElectricityLoadForecasting_files/figure-markdown_strict/cell-8-output-1.png)
 
 We clearly observe that the time series exhibits seasonal patterns.
 Moreover, the time series contains `32,896` observations, so it is
@@ -102,18 +102,18 @@ in production.
 
 ### MSTL model
 
-The [MSTL](../models/MultipleSeasonalTrend) (Multiple Seasonal-Trend
-decomposition using LOESS) model, originally developed by [Kasun
-Bandara, Rob J Hyndman and Christoph
+The [MSTL](../../src/core/models.html#multipleseasonaltrend) (Multiple
+Seasonal-Trend decomposition using LOESS) model, originally developed by
+[Kasun Bandara, Rob J Hyndman and Christoph
 Bergmeir](https://arxiv.org/abs/2107.13462), decomposes the time series
 in multiple seasonalities using a Local Polynomial Regression (LOESS).
 Then it forecasts the trend using a custom non-seasonal model and each
-seasonality using a [SeasonalNaive](../../models#class-seasonalnaive)
-model.
+seasonality using a
+[SeasonalNaive](../../src/core/models.html#seasonalnaive) model.
 
 `StatsForecast` contains a fast implementation of the
-[MSTL](../models/MultipleSeasonalTrend) model. Also, the decomposition
-of the time series can be calculated.
+[MSTL](../../src/core/models.html#multipleseasonaltrend) model. Also,
+the decomposition of the time series can be calculated.
 
 ```python
 from statsforecast import StatsForecast
@@ -124,10 +124,11 @@ from statsforecast.utils import AirPassengers as ap
 First we must define the model parameters. As mentioned before, the
 electricity load presents seasonalities every 24 hours (Hourly) and
 every 24 \* 7 (Daily) hours. Therefore, we will use `[24, 24 * 7]` as
-the seasonalities that the [MSTL](../models/MultipleSeasonalTrend) model
-receives. We must also specify the manner in which the trend will be
-forecasted. In this case we will use the
-[AutoARIMA](../models/AutoARIMA) model.
+the seasonalities that the
+[MSTL](../../src/core/models.html#multipleseasonaltrend) model receives.
+We must also specify the manner in which the trend will be forecasted.
+In this case we will use the
+[AutoARIMA](../../src/core/models.html#autoarima) model.
 
 ```python
 mstl = MSTL(
@@ -163,9 +164,9 @@ relevant information of the fitted models for each of the time series.
 
 In this case we are fitting a single model for a single time series, so
 by accessing the fitted\_ location \[0, 0\] we will find the relevant
-information of our model. The [MSTL](../../models#class-mstl) class
-generates a `model_` attribute that contains the way the series was
-decomposed.
+information of our model. The [MSTL](../../src/core/models.html#mstl)
+class generates a `model_` attribute that contains the way the series
+was decomposed.
 
 ```python
 sf.fitted_[0, 0].model_
@@ -193,14 +194,14 @@ plt.tight_layout()
 plt.show()
 ```
 
-![](ElectricityLoadForecasting_files/figure-markdown_strict/cell-14-output-1.png)
+![](./ElectricityLoadForecasting_files/figure-markdown_strict/cell-14-output-1.png)
 
 We observe that there is a clear trend towards the high (orange line).
 This component would be predicted with the
-[AutoARIMA](../models/AutoARIMA) model. We can also observe that every
-24 hours and every `24 * 7` hours there is a very well defined pattern.
-These two components will be forecast separately using a
-[SeasonalNaive](../../models#class-seasonalnaive) model.
+[AutoARIMA](../../src/core/models.html#autoarima) model. We can also
+observe that every 24 hours and every `24 * 7` hours there is a very
+well defined pattern. These two components will be forecast separately
+using a [SeasonalNaive](../../src/core/models.html#seasonalnaive) model.
 
 #### Produce forecasts
 
@@ -230,7 +231,7 @@ Let’s look at our forecasts graphically.
 plot_series(df, forecasts, level=[90], max_insample_length=24*7)
 ```
 
-![](ElectricityLoadForecasting_files/figure-markdown_strict/cell-16-output-1.png)
+![](./ElectricityLoadForecasting_files/figure-markdown_strict/cell-16-output-1.png)
 
 In the next section we will plot different models so it is convenient to
 reuse the previous code with the following function.
@@ -274,8 +275,8 @@ df_train = df.drop(df_test.index)
 #### MSTL model
 
 In addition to the `MSTL` model, we will include the
-[SeasonalNaive](../../models#class-seasonalnaive) model as a benchmark
-to validate the added value of the `MSTL` model. Including
+[SeasonalNaive](../../src/core/models.html#seasonalnaive) model as a
+benchmark to validate the added value of the `MSTL` model. Including
 `StatsForecast` models is as simple as adding them to the list of models
 to be fitted.
 
@@ -328,7 +329,7 @@ values.
 plot_series(df_train, df_test.merge(forecasts_test), level=[90], max_insample_length=24*7)
 ```
 
-![](ElectricityLoadForecasting_files/figure-markdown_strict/cell-23-output-1.png)
+![](./ElectricityLoadForecasting_files/figure-markdown_strict/cell-23-output-1.png)
 
 Let’s look at those produced only by `MSTL`.
 
@@ -336,7 +337,7 @@ Let’s look at those produced only by `MSTL`.
 plot_series(df_train, df_test.merge(forecasts_test), level=[90], max_insample_length=24*7, models=['MSTL'])
 ```
 
-![](ElectricityLoadForecasting_files/figure-markdown_strict/cell-24-output-1.png)
+![](./ElectricityLoadForecasting_files/figure-markdown_strict/cell-24-output-1.png)
 
 We note that `MSTL` produces very accurate forecasts that follow the
 behavior of the time series. Now let us calculate numerically the
@@ -450,7 +451,7 @@ forecasts_test = forecasts_test.merge(forecast_prophet, how='left', on=['unique_
 plot_series(df_train, forecasts_test, max_insample_length=24*7, level=[90])
 ```
 
-![](ElectricityLoadForecasting_files/figure-markdown_strict/cell-33-output-1.png)
+![](./ElectricityLoadForecasting_files/figure-markdown_strict/cell-33-output-1.png)
 
 We note that `Prophet` is able to capture the overall behavior of the
 time series. However, in some cases it produces forecasts well below the
@@ -582,7 +583,7 @@ forecasts_test = forecasts_test.merge(forecast_np, how='left', on=['unique_id', 
 plot_series(df_train, forecasts_test, max_insample_length=24*7, level=[90])
 ```
 
-![](ElectricityLoadForecasting_files/figure-markdown_strict/cell-41-output-1.png)
+![](./ElectricityLoadForecasting_files/figure-markdown_strict/cell-41-output-1.png)
 
 The forecasts graph shows that `NeuralProphet` generates very similar
 results to `Prophet`, as expected.
